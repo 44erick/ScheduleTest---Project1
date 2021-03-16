@@ -1,0 +1,24 @@
+﻿@model Appointment
+<!--<div>
+    <h4>Time: @Model.Time</h4>
+</div>
+-->
+<div class="col-lg-3 col-md-6 mb-4 align-self-md-center">
+<div class="card h-100">
+    <div class="card-body table-bordered" style="border-color: coral">
+        <h4 class="card-title">@Model.Time</h4>
+
+
+        <form id="@Model.AppointmentId" asp-page="/Purchase" method="post">
+            <input type="hidden" asp-for="AppointmentId" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+            <button type="submit" class="btn-success btn-sm pull-right" style="float:right">
+                Schedule
+            </button>
+        </form>
+    </div>
+
+</div>
+
+
+</div>

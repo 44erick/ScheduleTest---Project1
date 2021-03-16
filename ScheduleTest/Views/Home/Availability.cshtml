@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IQueryable<Appointment>
+
+<div class="text-center">
+    <h1 class="display-4">Sign Up</h1>
+</div>
+
+
+@foreach (var x in Model)
+{
+    <partial name="AppointmentSummary" model="x" />
+}
