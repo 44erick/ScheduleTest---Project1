@@ -8,7 +8,7 @@ using ScheduleTest.Models;
 namespace ScheduleTest.Migrations
 {
     [DbContext(typeof(ScheduleTestDbContext))]
-    [Migration("20210317193925_Initial")]
+    [Migration("20210317195208_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

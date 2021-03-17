@@ -1,27 +1,30 @@
 ﻿@model ScheduleTest.Models.SignUpInfo
 
-@*<h1>@ViewBag.Appointment.Day - @ViewBag.Appointment.Time</h1>*@
-<div class="col-lg-3 col-md-6 mb-4 align-self-md-center">
-    <form asp-action="SignUp" method="post">
-        <label asp-for="GroupName">Name of Group:</label>
-        <input asp-for="GroupName"/>
-        <br />
+<div class="text-center">
+    @*If the line below is uncommented... it breaks when you try to save info but idk why*@
+    <h1>@ViewBag.Appointment.Day - @ViewBag.Appointment.Time</h1>
+    <div>
+        <form asp-action="SignUp" method="post">
+            <label asp-for="GroupName">Name of Group:</label>
+            <input asp-for="GroupName" />
+            <br />
 
-        <label asp-for="GroupSize">Size of Group:</label>
-        <input asp-for="GroupSize"/>
-        <br />
+            <label asp-for="GroupSize">Size of Group:</label>
+            <input asp-for="GroupSize" />
+            <br />
 
-        <label asp-for="Email">Email Address:</label>
-        <input asp-for="Email"/>
-        <br />
+            <label asp-for="Email">Email Address:</label>
+            <input asp-for="Email" />
+            <br />
 
-        <label asp-for="PhoneNumber">Phone Number:</label>
-        <input asp-for="PhoneNumber"/>
-        <br />
-        <br />
+            <label asp-for="PhoneNumber">Phone Number:</label>
+            <input asp-for="PhoneNumber" />
+            <br />
+            <br />
 
-        <button type="submit" class="btn-primary btn-sm">Make Reservation</button>
+            <button type="submit" class="btn-primary btn-sm">Make Reservation</button>
 
-        <div asp-validation-summary="All"></div>
-    </form>
+            <div asp-validation-summary="All"></div>
+        </form>
+    </div>
 </div>
