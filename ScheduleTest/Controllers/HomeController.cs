@@ -21,12 +21,18 @@ namespace ScheduleTest.Controllers
             _repository = repository;
             context = con;
         }
-
+        [HttpGet]
         public IActionResult Availability()
         {
             return View(context.Appointments);
         }
-
+        [HttpPost]
+        public IActionResult Availability(int appointmentId)
+        {
+            Appointment appointment = context.Appointments.Where(a => a.AppointmentId == appointmentId).FirstOrDefault();
+            ViewBag.Appointment = appointment;
+            return View("SignUp");
+        }
         //Sign Up Page FORM GET
         [HttpGet]
         public IActionResult SignUp()
@@ -34,13 +40,11 @@ namespace ScheduleTest.Controllers
             return View();
         }
         //Sign Up Page FORM POST
-        [HttpPost]
-        public IActionResult SignUp(int appointmentId)
-        {
-            Appointment appointment = context.Appointments.Where(a => a.AppointmentId == appointmentId).FirstOrDefault();
-            ViewBag.Appointment = appointment;
-            return View("SignUp");
-        }
+        //[HttpPost]
+        //public IActionResult SignUp()
+        //{
+
+        //}
         //Home Page 
         public IActionResult Index()
         {

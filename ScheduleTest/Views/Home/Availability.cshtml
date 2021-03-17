@@ -16,7 +16,7 @@
                 <h4 class="card-title">@x.Day - @x.Time</h4>
 
 
-                <form asp-action="SignUp" method="post">
+                <form asp-action="Availability" method="post">
                     <input type="hidden" name="appointmentId" value="@x.AppointmentId" />
                     <button type="submit" class="btn-primary btn-sm">Schedule</button>
                 </form>

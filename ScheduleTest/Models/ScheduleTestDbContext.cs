@@ -13,5 +13,6 @@ namespace ScheduleTest.Models
 
         }
         public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<SignUpInfo> SignUpInfos { get; set; }
     }
 }
