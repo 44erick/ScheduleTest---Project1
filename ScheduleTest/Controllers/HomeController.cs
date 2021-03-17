@@ -39,12 +39,22 @@ namespace ScheduleTest.Controllers
         {
             return View();
         }
-        //Sign Up Page FORM POST
-        //[HttpPost]
-        //public IActionResult SignUp()
-        //{
 
-        //}
+        [HttpPost]
+        public IActionResult SignUpForm(SignUpInfo s, Appointment a)
+        {
+            //That required information is entered and validation model works
+            if (ModelState.IsValid)
+            {
+                context.SignUpInfos.Add(s);
+                Response.Redirect("Index");
+                return View();
+            }
+            else
+            {
+                return View();
+            }
+        }
         //Home Page 
         public IActionResult Index()
         {
