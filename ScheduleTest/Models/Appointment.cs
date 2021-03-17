@@ -12,5 +12,7 @@ namespace ScheduleTest.Models
         [Key]
         public int AppointmentId { get; set; }
         public string Time { get; set; }
+
+        public string Day { get; set; }
     }
 }
