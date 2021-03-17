@@ -24,8 +24,7 @@ namespace ScheduleTest.Controllers
 
         public IActionResult Availability()
         {
-            //return View(_repository.Appointments);
-            return View();
+            return View(context.Appointments);
         }
 
         //Sign Up Page FORM GET
