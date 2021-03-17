@@ -9,7 +9,7 @@
         <h4 class="card-title">@Model.Time</h4>
 
 
-        <form id="@Model.AppointmentId" asp-page="/Purchase" method="post">
+        <form id="@Model.AppointmentId" asp-page="/SignUp" method="post">
             <input type="hidden" asp-for="AppointmentId" />
             <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
             <button type="submit" class="btn-success btn-sm pull-right" style="float:right">
