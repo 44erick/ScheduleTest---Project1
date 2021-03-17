@@ -1,8 +1,8 @@
 ﻿@model ScheduleTest.Models.SignUpInfo
 
-<h1>@ViewBag.Appointment.Day - @ViewBag.Appointment.Time</h1>
+@*<h1>@ViewBag.Appointment.Day - @ViewBag.Appointment.Time</h1>*@
 <div class="col-lg-3 col-md-6 mb-4 align-self-md-center">
-    <form asp-action="SignUpForm" method="post">
+    <form asp-action="SignUp" method="post">
         <label asp-for="GroupName">Name of Group:</label>
         <input asp-for="GroupName"/>
         <br />

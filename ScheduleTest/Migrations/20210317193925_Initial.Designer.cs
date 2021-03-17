@@ -8,7 +8,7 @@ using ScheduleTest.Models;
 namespace ScheduleTest.Migrations
 {
     [DbContext(typeof(ScheduleTestDbContext))]
-    [Migration("20210317171055_Initial")]
+    [Migration("20210317193925_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,31 @@ namespace ScheduleTest.Migrations
                     b.HasKey("AppointmentId");
 
                     b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("ScheduleTest.Models.SignUpInfo", b =>
+                {
+                    b.Property<int>("GroupId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GroupName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("GroupSize")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("GroupId");
+
+                    b.ToTable("SignUpInfos");
                 });
 #pragma warning restore 612, 618
         }

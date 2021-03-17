@@ -41,12 +41,13 @@ namespace ScheduleTest.Controllers
         }
 
         [HttpPost]
-        public IActionResult SignUpForm(SignUpInfo s, Appointment a)
+        public IActionResult SignUp(SignUpInfo s, Appointment a)
         {
             //That required information is entered and validation model works
             if (ModelState.IsValid)
             {
                 context.SignUpInfos.Add(s);
+                context.SaveChanges();
                 Response.Redirect("Index");
                 return View();
             }

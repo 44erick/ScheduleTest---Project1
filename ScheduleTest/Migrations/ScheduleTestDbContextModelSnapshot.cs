@@ -31,6 +31,31 @@ namespace ScheduleTest.Migrations
 
                     b.ToTable("Appointments");
                 });
+
+            modelBuilder.Entity("ScheduleTest.Models.SignUpInfo", b =>
+                {
+                    b.Property<int>("GroupId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GroupName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("GroupSize")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("GroupId");
+
+                    b.ToTable("SignUpInfos");
+                });
 #pragma warning restore 612, 618
         }
     }
