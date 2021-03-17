@@ -14,15 +14,18 @@ namespace ScheduleTest.Controllers
         private readonly ILogger<HomeController> _logger;
 
         private IScheduleRepository _repository;
-        public HomeController(ILogger<HomeController> logger, IScheduleRepository repository)
+        private ScheduleTestDbContext context { get; set; }
+        public HomeController(ILogger<HomeController> logger, IScheduleRepository repository, ScheduleTestDbContext con)
         {
             _logger = logger;
             _repository = repository;
+            context = con;
         }
 
         public IActionResult Availability()
         {
-            return View(_repository.Appointments);
+            //return View(_repository.Appointments);
+            return View();
         }
 
         //Sign Up Page FORM GET
@@ -31,7 +34,14 @@ namespace ScheduleTest.Controllers
         {
             return View();
         }
-
+        //Sign Up Page FORM POST
+        [HttpPost]
+        public IActionResult SignUp(int appointmentId)
+        {
+            Appointment appointment = context.Appointments.Where(a => a.AppointmentId == appointmentId).FirstOrDefault();
+            ViewBag.Appointment = appointment;
+            return View("SignUp");
+        }
         //Home Page 
         public IActionResult Index()
         {
