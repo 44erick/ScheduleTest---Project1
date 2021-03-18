@@ -7,7 +7,7 @@
     <h1 class="display-4">Sign Up</h1>
 </div>
 
-
+@*Available appointments list*@
 @foreach (var x in Model)
 {
     if (x.Booked == false)
@@ -17,7 +17,7 @@
                 <div class="card-body border-dark" style="border-color: coral">
                     <h4 class="card-title">@x.Day - @x.Time</h4>
 
-
+                    @*Reserve appointment time button*@
                     <form asp-action="Availability" method="post">
                         <input type="hidden" name="appointmentId" value="@x.AppointmentId" />
                         <button type="submit" class="btn-primary btn-sm">Schedule</button>
@@ -27,5 +27,4 @@
             </div>
         </div>
     }
-
 }

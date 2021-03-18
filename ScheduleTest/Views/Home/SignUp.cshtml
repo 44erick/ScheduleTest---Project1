@@ -1,10 +1,11 @@
 ﻿@model ScheduleTest.Models.SignUpInfo
-
+@*Reservation signup details*@
 <div class="text-center">
     <h1>The tour you have selected is:</h1>
     <h3>@TempData["ApptDay"] - @TempData["ApptTime"]</h3>
     <div>
         <form asp-action="SignUp" method="post">
+            @*Input for needed information*@
             <label asp-for="GroupName">Name of Group:</label>
             <input asp-for="GroupName" />
             <br />
@@ -21,10 +22,10 @@
             <input asp-for="PhoneNumber" />
             <br />
             <br />
-
+            @*Pre-selected data from viewbag*@
             <input type="hidden" asp-for="GroupDay" value="@TempData["ApptDay"]" />
             <input type="hidden" asp-for="GroupTime" value="@TempData["ApptTime"]" />
-
+            @*Submission button*@
             <button type="submit" class="btn-primary btn-sm">Make Reservation</button>
 
             <div asp-validation-summary="All"></div>
