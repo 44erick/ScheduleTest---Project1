@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-// the best
+// Model to assign the right validators for the sign up information
 namespace ScheduleTest.Models
 {
     public class SignUpInfo
