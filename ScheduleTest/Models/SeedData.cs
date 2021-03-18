@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+//Model assigning the seed data to set up the different appointments on the page
 namespace ScheduleTest.Models
 {
     public class SeedData
@@ -14,7 +14,7 @@ namespace ScheduleTest.Models
         {
             ScheduleTestDbContext context = application.ApplicationServices.
                 CreateScope().ServiceProvider.GetRequiredService<ScheduleTestDbContext>();
-
+//making sure the db is connected and that it runs smoothly
             if(context.Database.GetPendingMigrations().Any())
             {
                 context.Database.Migrate();
