@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace ScheduleTest.Models
 {
+    //inheriting from IScheduleRepository
     public class EFScheduleRepository : IScheduleRepository
     {
         private ScheduleTestDbContext _context;
