@@ -30,8 +30,25 @@ namespace ScheduleTest.Controllers
         public IActionResult Availability(int appointmentId)
         {
             Appointment appointment = context.Appointments.Where(a => a.AppointmentId == appointmentId).FirstOrDefault();
+            //ViewBag.Appointment = new List<Appointment> appointment;
+
+            //store the view bag object attributes that I need as temp data so they will persist between pages
             ViewBag.Appointment = appointment;
+            TempData["ApptDay"] = ViewBag.Appointment.Day;
+            TempData["ApptTime"] = ViewBag.Appointment.Time;
+
+            //update appointment and set booked to true so it doesn't keep showing up
+            appointment.Booked = true;
+            context.Appointments.Update(appointment);
+            context.SaveChanges();
+
+            //return SignUp View
             return View("SignUp");
+        }
+        [HttpGet]
+        public IActionResult BookedTours()
+        {
+            return View(context.SignUpInfos);
         }
         //Sign Up Page FORM GET
         [HttpGet]
@@ -43,6 +60,8 @@ namespace ScheduleTest.Controllers
         [HttpPost]
         public IActionResult SignUp(SignUpInfo s, Appointment a)
         {
+            //Appointment appointment = context.Appointments.Where(a => a.AppointmentId == appointmentId).FirstOrDefault();
+            //ViewBag.Appointment = appointment;
             //That required information is entered and validation model works
             if (ModelState.IsValid)
             {
@@ -61,27 +80,6 @@ namespace ScheduleTest.Controllers
         {
             return View();
         }
-
-        ////COMMENTED OUT UNTIL THE CORRECT FORMS AND OBJECTS ARE CREATED THAT WILL ALLOW ME TO PASS IN THE INFO I NEED FOR THE SIGN UP INFO
-        ////Sign Up Page FORM POST
-        //[HttpPost]
-        //public IActionResult SignUp(SignUpInfo oSignUpInfo) //I NEED TO PUT IN THE CORRECT ROUTE FOR THE MODEL BEFORE THIS WILL WORK
-        //{
-        //    //don't submit the form unless everything has been inputted correctly.
-        //    if (ModelState.IsValid)
-        //    {
-        //        //Add entry to  DB
-        //        context.Tasks.Add(oSignUpInfo);
-        //        //update DB
-        //        context.SaveChanges();
-        //        //send them back to the home page
-        //        return View("Index");
-        //    }
-        //    //if incorrect, just send them the form page again
-        //    return View();
-        //}
-
-        //View Appointments Page
 
         public IActionResult Privacy()
         {

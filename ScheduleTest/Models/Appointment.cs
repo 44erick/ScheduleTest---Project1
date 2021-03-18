@@ -14,5 +14,6 @@ namespace ScheduleTest.Models
         public string Time { get; set; }
 
         public string Day { get; set; }
+        public bool Booked { get; set; } = false;
     }
 }

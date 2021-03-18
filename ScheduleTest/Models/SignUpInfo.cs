@@ -18,5 +18,7 @@ namespace ScheduleTest.Models
         [Required]
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+        public string GroupDay { get; set; }
+        public string GroupTime { get; set; }
     }
 }

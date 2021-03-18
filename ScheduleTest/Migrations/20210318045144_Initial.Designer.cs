@@ -8,7 +8,7 @@ using ScheduleTest.Models;
 namespace ScheduleTest.Migrations
 {
     [DbContext(typeof(ScheduleTestDbContext))]
-    [Migration("20210317195208_Initial")]
+    [Migration("20210318045144_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,6 +21,9 @@ namespace ScheduleTest.Migrations
                 {
                     b.Property<int>("AppointmentId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Booked")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Day")
@@ -44,12 +47,18 @@ namespace ScheduleTest.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("GroupDay")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("GroupName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("GroupSize")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("GroupTime")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("TEXT");

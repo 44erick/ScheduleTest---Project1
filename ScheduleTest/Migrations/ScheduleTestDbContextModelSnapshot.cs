@@ -21,6 +21,9 @@ namespace ScheduleTest.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("Booked")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Day")
                         .HasColumnType("TEXT");
 
@@ -42,12 +45,18 @@ namespace ScheduleTest.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("GroupDay")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("GroupName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("GroupSize")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("GroupTime")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("TEXT");

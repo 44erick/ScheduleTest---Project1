@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Booked Tours";
+}
+
+@model IEnumerable<SignUpInfo>
+<div class="text-center">
+    <h1 class="display-4">View Booked Appointments</h1>
+</div>
+
+
+@foreach (var x in Model)
+{
+        <div class="text-center">
+            <div class="card h-100">
+                <div class="card-body border-dark" style="border-color: coral">
+                    <h4 class="card-title">@x.GroupDay - @x.GroupTime</h4>
+                    <p>@x.GroupName party of @x.GroupSize</p>
+                </div>
+            </div>
+        </div>
+}

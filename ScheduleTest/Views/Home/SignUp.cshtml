@@ -1,8 +1,8 @@
 ﻿@model ScheduleTest.Models.SignUpInfo
 
 <div class="text-center">
-    @*If the line below is uncommented... it breaks when you try to save info but idk why*@
-    <h1>@ViewBag.Appointment.Day - @ViewBag.Appointment.Time</h1>
+    <h1>The tour you have selected is:</h1>
+    <h3>@TempData["ApptDay"] - @TempData["ApptTime"]</h3>
     <div>
         <form asp-action="SignUp" method="post">
             <label asp-for="GroupName">Name of Group:</label>
@@ -21,6 +21,9 @@
             <input asp-for="PhoneNumber" />
             <br />
             <br />
+
+            <input type="hidden" asp-for="GroupDay" value="@TempData["ApptDay"]" />
+            <input type="hidden" asp-for="GroupTime" value="@TempData["ApptTime"]" />
 
             <button type="submit" class="btn-primary btn-sm">Make Reservation</button>
 
