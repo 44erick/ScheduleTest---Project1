@@ -13,24 +13,31 @@ namespace ScheduleTest.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        //set up repository
         private IScheduleRepository _repository;
+        //set up context file
         private ScheduleTestDbContext context { get; set; }
         public HomeController(ILogger<HomeController> logger, IScheduleRepository repository, ScheduleTestDbContext con)
         {
             _logger = logger;
             _repository = repository;
+            
+            //allow access to context file
             context = con;
         }
+
+        //Get request for Availability page
         [HttpGet]
         public IActionResult Availability()
         {
             return View(context.Appointments);
         }
+        //Post Request for availability page
         [HttpPost]
         public IActionResult Availability(int appointmentId)
         {
+            //pull in appointment based on appointmentId. Save it to appointment variable
             Appointment appointment = context.Appointments.Where(a => a.AppointmentId == appointmentId).FirstOrDefault();
-            //ViewBag.Appointment = new List<Appointment> appointment;
 
             //store the view bag object attributes that I need as temp data so they will persist between pages
             ViewBag.Appointment = appointment;
@@ -45,26 +52,29 @@ namespace ScheduleTest.Controllers
             //return SignUp View
             return View("SignUp");
         }
+
+        //Get Request for Booked Tours portion
         [HttpGet]
         public IActionResult BookedTours()
         {
             return View(context.SignUpInfos);
         }
-        //Sign Up Page FORM GET
+
+        //Get request for Sign Up portion
         [HttpGet]
         public IActionResult SignUp()
         {
             return View();
         }
 
+        //Post request for Sign Up portion
         [HttpPost]
         public IActionResult SignUp(SignUpInfo s, Appointment a)
         {
-            //Appointment appointment = context.Appointments.Where(a => a.AppointmentId == appointmentId).FirstOrDefault();
-            //ViewBag.Appointment = appointment;
-            //That required information is entered and validation model works
+            //make sure inputs are correct before sending to DB
             if (ModelState.IsValid)
             {
+                //save new signup to DB and then send to Index page
                 context.SignUpInfos.Add(s);
                 context.SaveChanges();
                 Response.Redirect("Index");
@@ -72,15 +82,18 @@ namespace ScheduleTest.Controllers
             }
             else
             {
+                //send them the same page and display Validation
                 return View();
             }
         }
-        //Home Page 
+
+        //Get Request for Index page
         public IActionResult Index()
         {
             return View();
         }
 
+        //Get Request for Privacy page
         public IActionResult Privacy()
         {
             return View();
