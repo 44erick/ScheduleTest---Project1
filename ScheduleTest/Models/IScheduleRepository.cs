@@ -7,6 +7,7 @@ namespace ScheduleTest.Models
 {
     public interface IScheduleRepository
     {
+        //making a getter for the appointment object
         IQueryable<Appointment> Appointments { get; }
     }
 }
