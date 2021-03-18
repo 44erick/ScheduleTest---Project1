@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+//setup context file as good practice when creating database. 
 
 namespace ScheduleTest.Models
 {
